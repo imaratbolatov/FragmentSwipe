@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">FragmentSwipe</string>
+    <string name="top_fragment_title">Top Fragment</string>
+    <string-array name="pizzas">
+        <item>Diavolo</item>
+        <item>Funghi</item>
+    </string-array>
+    <string-array name="pastas">
+        <item>Fettuccine</item>
+        <item>Lasagna</item>
+    </string-array>
+    <string-array name="stores">
+        <item>Cambridge</item>
+        <item>Awesome Market</item>
+    </string-array>
+</resources>
