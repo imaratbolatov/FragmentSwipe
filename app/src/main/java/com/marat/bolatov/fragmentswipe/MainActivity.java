@@ -1,6 +1,7 @@
 package com.marat.bolatov.fragmentswipe;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.google.android.material.tabs.TabLayout;
 import com.marat.bolatov.fragmentswipe.fragments.PastaFragment;
 import com.marat.bolatov.fragmentswipe.fragments.PizzaFragment;
 import com.marat.bolatov.fragmentswipe.fragments.StoresFragment;
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter pagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(pagerAdapter);
+        TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     private class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -48,6 +52,22 @@ public class MainActivity extends AppCompatActivity {
                     return new PizzaFragment();
                 case 3:
                     return new StoresFragment();
+            }
+            return null;
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return getResources().getText(R.string.home_tab);
+                case 1:
+                    return getResources().getText(R.string.pasta_tab);
+                case 2:
+                    return getResources().getText(R.string.pizza_tab);
+                case 3:
+                    return getResources().getText(R.string.store_tab);
             }
             return null;
         }
